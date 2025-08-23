@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import torchaudio
 from tangoflux import TangoFluxInference
 import os
+from pydub import AudioSegment
 
 app = FastAPI()
 
@@ -42,4 +43,20 @@ async def save():
         media_type="audio/wav",
         filename=os.path.basename(OUTPUT_FILE),
         headers={"Content-Disposition": f"attachment; filename={os.path.basename(OUTPUT_FILE)}"}
+    )
+
+@app.get("/trim-preview")
+async def trim(start: float, end: float):
+    audio = AudioSegment.from_wav(OUTPUT_FILE)
+    trimmed = audio[start * 1000.0 : end * 1000.0]
+    trimmed.export("trimmed.wav", format="wav")
+    return FileResponse("trimmed.wav", media_type="audio/wav")
+
+@app.get("/trim-save")
+async def save():
+    return FileResponse(
+        "trimmed.wav",
+        media_type="audio/wav",
+        filename=os.path.basename("trimmed.wav"),
+        headers={"Content-Disposition": f"attachment; filename={os.path.basename('trimmed.wav')}"}
     )
