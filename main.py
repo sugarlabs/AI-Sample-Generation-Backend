@@ -1,10 +1,10 @@
-from fastapi import FastAPI
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
-import torchaudio
-from tangoflux import TangoFluxInference
 import os
+import torchaudio
+from fastapi import FastAPI
 from pydub import AudioSegment
+from tangoflux import TangoFluxInference
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, JSONResponse
 
 app = FastAPI()
 
