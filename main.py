@@ -1,4 +1,3 @@
-import os
 import torchaudio
 from fastapi import FastAPI
 from pydub import AudioSegment
@@ -41,8 +40,7 @@ async def save():
     return FileResponse(
         OUTPUT_FILE,
         media_type="audio/wav",
-        filename=os.path.basename(OUTPUT_FILE),
-        headers={"Content-Disposition": f"attachment; filename={os.path.basename(OUTPUT_FILE)}"}
+        filename=OUTPUT_FILE,
     )
 
 @app.get("/trim-preview")
@@ -57,6 +55,5 @@ async def save():
     return FileResponse(
         "trimmed.wav",
         media_type="audio/wav",
-        filename=os.path.basename("trimmed.wav"),
-        headers={"Content-Disposition": f"attachment; filename={os.path.basename('trimmed.wav')}"}
+        filename="trimmed.wav",
     )
