@@ -1,12 +1,8 @@
 # AI-Sample-Generation-Backend
 
----
-
 ## Prerequisites
 
 - Docker installed on your system.
-
----
 
 ## Running the Server Locally
 
