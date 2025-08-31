@@ -1,10 +1,12 @@
 # AI-Sample-Generation-Backend
 
-## Prerequisites
+## How to run the server locally
+
+### Prerequisites
 
 - Docker installed on your system.
 
-## Running the Server Locally
+### Running the Server Locally
 
 1. Pull the Docker image from Docker Hub:
 
