@@ -19,3 +19,9 @@ docker pull muhammadharoon021/ai-sample-generation-backend:latest
 ```bash
 docker run -p 8000:8000 muhammadharoon021/ai-sample-generation-backend:latest
 ```
+
+### Credits
+
+---
+
+This repository was made under Sugar Summer of Code 2025 program by [Muhammad Haroon](https://github.com/haroon10725)
